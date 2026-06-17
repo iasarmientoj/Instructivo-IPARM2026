@@ -160,6 +160,12 @@
             max-height: 280px;
             object-fit: contain;
             border-radius: 4px;
+            cursor: zoom-in;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .step-img:hover {
+            transform: scale(1.02);
         }
 
         .alert-box {
@@ -184,6 +190,49 @@
             margin: 0;
             font-size: 14px;
             color: var(--text);
+        }
+
+        /* --- LIGHTBOX MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 4px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+            animation: zoom 0.2s ease-out;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close-modal:hover {
+            color: #bbb;
         }
     </style>
 </head>
@@ -220,7 +269,7 @@
             <div class="step-card">
                 <div>
                     <div class="step-number">Paso 1</div>
-                    <p class="step-desc">Ingrese al enlace de la lista y escriba su correo institucional asignado.</p>
+                    <p class="step-desc">Ingrese al enlace de la lista y escriba su correo institucional asignado. (Clic para ampliar imagen)</p>
                 </div>
                 <div class="img-container">
                     <img src="inicio1.png" alt="Paso 1" class="step-img">
@@ -428,6 +477,35 @@
             </p>
         </div>
     </div>
+
+    <!-- --- LIGHTBOX MODAL --- -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script type="text/javascript">
+        // Lógica del modal de imagen
+        function openModal(imgSrc) {
+            document.getElementById("modal-img").src = imgSrc;
+            document.getElementById("image-modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("image-modal").style.display = "none";
+        }
+
+        // Agregar eventos a todas las imágenes de pasos
+        document.addEventListener("DOMContentLoaded", () => {
+            const stepImages = document.querySelectorAll(".step-img");
+            stepImages.forEach(img => {
+                img.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openModal(img.src);
+                });
+            });
+        });
+    </script>
 
 </body>
 
