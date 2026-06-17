@@ -94,18 +94,36 @@
             text-decoration: none;
         }
 
-        .section-title {
+        .collapsible-section {
+            margin-bottom: 15px;
+        }
+
+        summary.section-title {
             font-size: 22px;
             color: var(--primary);
             border-bottom: 2px solid var(--border);
             padding-bottom: 8px;
-            margin: 40px 0 20px 0;
+            margin: 20px 0 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            list-style: none;
+            outline: none;
+            user-select: none;
+        }
+
+        summary.section-title::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-header {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .section-title span {
+        .summary-header span {
             background: var(--primary);
             color: white;
             border-radius: 50%;
@@ -118,10 +136,21 @@
             font-weight: bold;
         }
 
+        .summary-arrow {
+            font-size: 14px;
+            color: var(--primary);
+            transition: transform 0.2s ease-in-out;
+            margin-right: 5px;
+        }
+
+        details[open] .summary-arrow {
+            transform: rotate(180deg);
+        }
+
         .step-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 15px;
         }
 
         @media (max-width: 768px) {
@@ -134,7 +163,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 24px;
+            padding: 16px;
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
@@ -153,7 +182,7 @@
         .step-desc {
             font-size: 15px;
             font-weight: 600;
-            margin: 0 0 16px 0;
+            margin: 0 0 12px 0;
             color: var(--text);
         }
 
@@ -205,53 +234,6 @@
             margin: 0;
             font-size: 14px;
             color: var(--text);
-        }
-
-        /* --- COLLAPSIBLE SECTIONS --- */
-        .collapsible-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 8px;
-            margin: 40px 0 20px 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .collapsible-header:hover {
-            opacity: 0.85;
-        }
-
-        .collapsible-header .section-title {
-            margin: 0;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .toggle-icon {
-            font-size: 18px;
-            color: var(--primary);
-            transition: transform 0.3s ease;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .collapsible-header.active .toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .collapsible-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease-in-out, opacity 0.25s ease-in-out;
-            opacity: 0;
-        }
-
-        .collapsible-content.show {
-            max-height: 3000px;
-            opacity: 1;
         }
 
         /* --- LIGHTBOX MODAL --- */
@@ -325,11 +307,13 @@
         </div>
 
         <!-- SECCIÓN 1 -->
-        <div class="collapsible-header" onclick="toggleSection(this)">
-            <h2 class="section-title"><span>1</span> Inicio de Sesión</h2>
-            <span class="toggle-icon">▼</span>
-        </div>
-        <div class="collapsible-content">
+        <details class="collapsible-section">
+            <summary class="section-title">
+                <div class="summary-header">
+                    <span>1</span> Inicio de Sesión
+                </div>
+                <span class="summary-arrow">▼</span>
+            </summary>
             <div class="step-grid">
                 <!-- Paso 1 -->
                 <div class="step-card">
@@ -372,14 +356,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </details>
 
         <!-- SECCIÓN 2 -->
-        <div class="collapsible-header" onclick="toggleSection(this)">
-            <h2 class="section-title"><span>2</span> Configuración de Cookies (Obligatorio para ver imágenes)</h2>
-            <span class="toggle-icon">▼</span>
-        </div>
-        <div class="collapsible-content">
+        <details class="collapsible-section">
+            <summary class="section-title">
+                <div class="summary-header">
+                    <span>2</span> Configuración de Cookies (Obligatorio para ver imágenes)
+                </div>
+                <span class="summary-arrow">▼</span>
+            </summary>
             <div class="step-grid">
                 <!-- Paso 1 -->
                 <div class="step-card">
@@ -412,14 +398,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </details>
 
         <!-- SECCIÓN 3 -->
-        <div class="collapsible-header" onclick="toggleSection(this)">
-            <h2 class="section-title"><span>3</span> Vinculación segura de doble factor (MFA)</h2>
-            <span class="toggle-icon">▼</span>
-        </div>
-        <div class="collapsible-content">
+        <details class="collapsible-section">
+            <summary class="section-title">
+                <div class="summary-header">
+                    <span>3</span> Vinculación segura de doble factor (MFA)
+                </div>
+                <span class="summary-arrow">▼</span>
+            </summary>
             <div class="step-grid">
                 <!-- Paso 1 -->
                 <div class="step-card">
@@ -482,63 +470,68 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </details>
 
         <!-- SECCIÓN 4 -->
-        <div class="collapsible-header active" onclick="toggleSection(this)">
-            <h2 class="section-title"><span>4</span> Acceso y Edición de Preguntas</h2>
-            <span class="toggle-icon">▼</span>
-        </div>
-        <div class="collapsible-content show">
-        <div class="step-grid">
-            <!-- Paso 1 -->
-            <div class="step-card">
-                <div>
-                    <div class="step-number">Paso 1</div>
-                    <p class="step-desc">En la lista de SharePoint, busque su pregunta asignada y haga clic en su Código de Pregunta (ej: <strong style="color: #005bc5;">"Co-11"</strong>).</p>
+        <details class="collapsible-section">
+            <summary class="section-title">
+                <div class="summary-header">
+                    <span>4</span> Acceso y Edición de Preguntas
                 </div>
-                <div class="img-container">
-                    <img src="edicion1.png" alt="Edición 1" class="step-img">
+                <span class="summary-arrow">▼</span>
+            </summary>
+            <div class="step-grid">
+                <!-- Paso 1 -->
+                <div class="step-card">
+                    <div>
+                        <div class="step-number">Paso 1</div>
+                        <p class="step-desc">En la lista de SharePoint, busque su pregunta asignada y haga clic en su Código de Pregunta (ej: <strong style="color: #005bc5;">"Co-11"</strong>).</p>
+                    </div>
+                    <div class="img-container">
+                        <img src="edicion1.png" alt="Edición 1" class="step-img">
+                    </div>
+                </div>
+                <!-- Paso 2 -->
+                <div class="step-card">
+                    <div>
+                        <div class="step-number">Paso 2</div>
+                        <p class="step-desc">Escriba el código de 6 dígitos que se muestra actualmente en su app autenticadora y presione "Abrir".</p>
+                    </div>
+                    <div class="img-container">
+                        <img src="edicion2.png" alt="Edición 2" class="step-img">
+                    </div>
+                </div>
+                <!-- Paso 3 -->
+                <div class="step-card">
+                    <div>
+                        <div class="step-number">Paso 3</div>
+                        <p class="step-desc">Modifique los campos correspondientes a su pregunta en el formulario personalizado.</p>
+                    </div>
+                    <div class="img-container">
+                        <img src="edicion3.png" alt="Edición 3" class="step-img">
+                    </div>
+                </div>
+                <!-- Paso 4 -->
+                <div class="step-card">
+                    <div>
+                        <div class="step-number">Paso 4</div>
+                        <p class="step-desc">⚠️ <strong style="color: #d83b01;">IMPORTANTE:</strong> Al presionar "Guardar y Salir" o "Cancelar", NO cierre el navegador ni la ventana. Espere a que la carga termine y el formulario se cierre solo para evitar pérdida de datos.</p>
+                    </div>
+                    <div class="img-container">
+                        <img src="edicion4.png" alt="Edición 4" class="step-img">
+                    </div>
                 </div>
             </div>
-            <!-- Paso 2 -->
-            <div class="step-card">
-                <div>
-                    <div class="step-number">Paso 2</div>
-                    <p class="step-desc">Escriba el código de 6 dígitos que se muestra actualmente en su app autenticadora y presione "Abrir".</p>
-                </div>
-                <div class="img-container">
-                    <img src="edicion2.png" alt="Edición 2" class="step-img">
-                </div>
-            </div>
-            <!-- Paso 3 -->
-            <div class="step-card">
-                <div>
-                    <div class="step-number">Paso 3</div>
-                    <p class="step-desc">Modifique los campos correspondientes a su pregunta en el formulario personalizado.</p>
-                </div>
-                <div class="img-container">
-                    <img src="edicion3.png" alt="Edición 3" class="step-img">
-                </div>
-            </div>
-            <!-- Paso 4 -->
-            <div class="step-card">
-                <div>
-                    <div class="step-number">Paso 4</div>
-                    <p class="step-desc">⚠️ <strong style="color: #d83b01;">IMPORTANTE:</strong> Al presionar "Guardar y Salir" o "Cancelar", NO cierre el navegador ni la ventana. Espere a que la carga termine y el formulario se cierre solo para evitar pérdida de datos.</p>
-                </div>
-                <div class="img-container">
-                    <img src="edicion4.png" alt="Edición 4" class="step-img">
-                </div>
-            </div>
-        </div> <!-- fin collapsible content 4 -->
+        </details>
 
         <!-- SECCIÓN 5 -->
-        <div class="collapsible-header active" onclick="toggleSection(this)">
-            <h2 class="section-title"><span>5</span> Edición de Actas</h2>
-            <span class="toggle-icon">▼</span>
-        </div>
-        <div class="collapsible-content show">
+        <details class="collapsible-section">
+            <summary class="section-title">
+                <div class="summary-header">
+                    <span>5</span> Edición de Actas
+                </div>
+                <span class="summary-arrow">▼</span>
+            </summary>
             <div class="step-grid">
                 <!-- Paso 1 -->
                 <div class="step-card">
@@ -561,8 +554,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- fin main container -->
+        </details>
+    </div>
 
     <!-- --- LIGHTBOX MODAL --- -->
     <div id="image-modal" class="modal" onclick="closeModal()">
@@ -571,13 +564,6 @@
     </div>
 
     <script type="text/javascript">
-        // Lógica de colapsables
-        function toggleSection(header) {
-            header.classList.toggle("active");
-            const content = header.nextElementSibling;
-            content.classList.toggle("show");
-        }
-
         // Lógica del modal de imagen
         function openModal(imgSrc) {
             document.getElementById("modal-img").src = imgSrc;
