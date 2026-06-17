@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Inicio Rápido para Psicómetras - IPARM 2026</title>
+    <style>
+        :root {
+            --primary: #0078d4;
+            --primary-hover: #005a9e;
+            --bg: #f3f2f1;
+            --card-bg: #ffffff;
+            --text: #323130;
+            --text-secondary: #605e5c;
+            --border: #edebe9;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            padding: 35px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 10px 0 0 0;
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-link:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title span {
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .step-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .step-desc {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            color: var(--text);
+        }
+
+        .img-container {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            background: #faf9f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .step-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .alert-box {
+            background-color: #fff2e6;
+            border-left: 4px solid #ff8c00;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            box-shadow: var(--shadow);
+        }
+
+        .alert-box h4 {
+            margin: 0 0 8px 0;
+            color: #d83b01;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .alert-box p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>Instructivo para Psicómetras y Coordinadores</h1>
+            <p>Guía de acceso, configuración, creación y edición de preguntas — IPARM 2026</p>
+            <div class="quick-links">
+                <a href="https://psicometriaunal.sharepoint.com/sites/SistemaDeGestionDePreguntas-IPARM2026/Lists/ListaDePreguntas/AllItems.aspx" target="_blank" class="btn-link">
+                    Acceder a Lista de Preguntas
+                </a>
+                <a href="https://psicometriaunal.sharepoint.com/sites/SistemaDeGestionDePreguntas-IPARM2026/Lists/ListaDeActas/AllItems.aspx" target="_blank" class="btn-link">
+                    Acceder a Lista de Actas
+                </a>
+            </div>
+        </div>
+
+        <!-- RECOMENDACIÓN IMPORTANTE -->
+        <div class="alert-box">
+            <h4>⚠️ Recomendación de Concurrencia y Sesiones</h4>
+            <p>
+                <strong>NO INICIE dos sesiones diferentes en el mismo computador</strong> (usando diferentes pestañas). Microsoft hereda las credenciales y podría guardar datos usando el usuario incorrecto. Si requiere abrir más de una cuenta a la vez para pruebas, hágalo desde <strong>perfiles de navegador distintos</strong> o desde ventanas de <strong>incógnito separadas</strong>.
+            </p>
+        </div>
+
+        <!-- SECCIÓN 1 -->
+        <h2 class="section-title"><span>1</span> Inicio de Sesión</h2>
+        <div class="step-grid">
+            <!-- Paso 1 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 1</div>
+                    <p class="step-desc">Ingrese al enlace de la lista y escriba su correo institucional asignado.</p>
+                </div>
+                <div class="img-container">
+                    <img src="inicio1.png" alt="Paso 1" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 2</div>
+                    <p class="step-desc">Haga clic en la opción azul "Usar contraseña" (o "Use your password") si le solicita autenticación móvil.</p>
+                </div>
+                <div class="img-container">
+                    <img src="inicio2.png" alt="Paso 2" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 3</div>
+                    <p class="step-desc">Ingrese la contraseña que le fue provista para su cuenta.</p>
+                </div>
+                <div class="img-container">
+                    <img src="inicio3.png" alt="Paso 3" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 4 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 4</div>
+                    <p class="step-desc">Presione "Sí" (o "Yes") para mantener la sesión iniciada y evitar iniciar sesión cada vez.</p>
+                </div>
+                <div class="img-container">
+                    <img src="inicio4.png" alt="Paso 4" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2 -->
+        <h2 class="section-title"><span>2</span> Configuración de Cookies (Obligatorio para ver imágenes)</h2>
+        <div class="step-grid">
+            <!-- Paso 1 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 1</div>
+                    <p class="step-desc">Estando en la lista, haga clic en el icono de configuración (candado o controles) al lado izquierdo de la URL del navegador y elija "Cookies y datos del sitio".</p>
+                </div>
+                <div class="img-container">
+                    <img src="cookies1.png" alt="Cookies 1" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 2</div>
+                    <p class="step-desc">Habilite la opción de "Cookies de terceros" (Cross-site cookies) para permitir que Power Apps descargue imágenes de SharePoint.</p>
+                </div>
+                <div class="img-container">
+                    <img src="cookies2.png" alt="Cookies 2" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 3</div>
+                    <p class="step-desc">Recargue la página del navegador para guardar los cambios de forma definitiva.</p>
+                </div>
+                <div class="img-container">
+                    <img src="cookies3.png" alt="Cookies 3" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3 -->
+        <h2 class="section-title"><span>3</span> Vinculación segura de doble factor (MFA)</h2>
+        <div class="step-grid">
+            <!-- Paso 1 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 1</div>
+                    <p class="step-desc">Abra el archivo HTML personalizado enviado por WhatsApp (ej: "Psicometra Junior 1 - Seguridad doble factor.html").</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa1.jpeg" alt="MFA 1" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 2</div>
+                    <p class="step-desc">Si no tiene una app autenticadora en su celular, instale una de las opciones sugeridas al final de la página.</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa2.jpeg" alt="MFA 2" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 3</div>
+                    <p class="step-desc">Haga clic en el botón azul "Abrir Autenticador" (o escanee el código QR desde su celular).</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa3.jpeg" alt="MFA 3" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 4 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 4</div>
+                    <p class="step-desc">Su celular abrirá la aplicación autenticadora instalada de forma automática.</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa4.jpeg" alt="MFA 4" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 5 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 5</div>
+                    <p class="step-desc">Presione "Sí / Agregar cuenta" para registrar y vincular el token del proyecto.</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa5.jpeg" alt="MFA 5" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 6 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 6</div>
+                    <p class="step-desc">El código de 6 dígitos generado cambia cada 30 segundos; este será su código de seguridad obligatorio para entrar a editar.</p>
+                </div>
+                <div class="img-container">
+                    <img src="mfa6.jpeg" alt="MFA 6" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4 -->
+        <h2 class="section-title"><span>4</span> Acceso, Creación y Edición de Preguntas</h2>
+        <div class="step-grid">
+            <!-- Paso 1 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 1</div>
+                    <p class="step-desc">En la lista de SharePoint, busque su pregunta asignada y haga clic en su Código de Pregunta (ej: "Co-11").</p>
+                </div>
+                <div class="img-container">
+                    <img src="edicion1.png" alt="Edición 1" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 2 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 2</div>
+                    <p class="step-desc">Escriba el código de 6 dígitos que se muestra actualmente en su app autenticadora y presione "Abrir".</p>
+                </div>
+                <div class="img-container">
+                    <img src="edicion2.png" alt="Edición 2" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 3 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 3</div>
+                    <p class="step-desc">Modifique los campos correspondientes a su pregunta en el formulario personalizado.</p>
+                </div>
+                <div class="img-container">
+                    <img src="edicion3.png" alt="Edición 3" class="step-img">
+                </div>
+            </div>
+            <!-- Paso 4 -->
+            <div class="step-card">
+                <div>
+                    <div class="step-number">Paso 4</div>
+                    <p class="step-desc">⚠️ IMPORTANTE: Al presionar "Guardar y Salir" o "Cancelar", NO cierre el navegador ni la ventana. Espere a que la carga termine (14-16 segundos para psicómetras debido a la actualización de permisos automatizada) y el formulario se cierre solo.</p>
+                </div>
+                <div class="img-container">
+                    <img src="edicion4.png" alt="Edición 4" class="step-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- EXTRA SECCIÓN: FUNCIONES EXCLUSIVAS DE PSICÓMETRAS -->
+        <h2 class="section-title"><span>★</span> Funciones Exclusivas de Coordinación y Psicometría</h2>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); margin-top: 20px;">
+            <p style="margin-top: 0; font-size: 15px; font-weight: 600; color: var(--primary);">
+                1. Creación de nuevas preguntas:
+            </p>
+            <p style="font-size: 14px; color: var(--text); margin-bottom: 20px; padding-left: 15px; border-left: 2px solid var(--primary);">
+                Para agregar un nuevo registro a la base de datos, haga clic en el botón de la barra de SharePoint que dice **"Inicializar"** (o "New"). Esto creará una estructura en blanco asignándole un ID automáticamente.
+            </p>
+
+            <p style="font-size: 15px; font-weight: 600; color: var(--primary);">
+                2. Asociación de Actas y Preguntas:
+            </p>
+            <p style="font-size: 14px; color: var(--text); margin-bottom: 20px; padding-left: 15px; border-left: 2px solid var(--primary);">
+                Las actas asociadas deben ser gestionadas directamente a través de la [Lista de Actas](https://psicometriaunal.sharepoint.com/sites/SistemaDeGestionDePreguntas-IPARM2026/Lists/ListaDeActas/AllItems.aspx), la cual se encuentra enlazada al sistema y vincula los IDs de las preguntas de forma directa.
+            </p>
+
+            <p style="font-size: 15px; font-weight: 600; color: var(--primary);">
+                3. Proceso Automatizado de Actualización de Permisos:
+            </p>
+            <p style="font-size: 14px; color: var(--text); margin-bottom: 0; padding-left: 15px; border-left: 2px solid var(--primary);">
+                Al guardar, la aplicación ejecuta automáticamente un flujo de Power Automate en segundo plano que restringe los accesos a los constructores no asignados. **Este paso es transparente** para el usuario final pero genera el retraso controlado de 14 segundos en el guardado.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
